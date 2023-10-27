@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Using constructor
+        // constructor is used to initialize object
+        // constructor is used to allocate memory to the objects
+
+
+        function CourseData(cn,fee, d){
+
+            this.coursename= cn;
+            this.fees= fee;
+            this.duration= d;
+            this.add= function(){
+                console.log("student has been enrolled in",cn)
+            }
+
+        }
+
+
+        let c1=new CourseData("python",6000,3);
+        console.log(c1);
+        c1.add();
+        
+        let c2=new CourseData("kotlin",7000,3);
+        console.log(c2);
+        c2.add();
+
+
+        // Objects are dynamic
+
+       c1.trainer="ravikesh";
+       
+       console.log(c1);
+
+       delete c1.fees;
+
+       console.log(c1);
+
+       c1.display= function(){
+        console.log('display function called');
+       }
+       c1.trainer="shameem";
+
+       console.log(c1);
+       c1.display();
+
+    console.log(c1.duration);
+
+    // Pass by value
+
+   
+    let num=10;
+    num2= num;
+    num= 90;
+    console.log("num is ", num);
+    console.log("num2 is ", num2);
+
+
+
+  // Pass by reference
+
+  let obj1= {"a":70};
+  obj2=obj1;
+  obj1.a=100;
+  console.log("obj1 is ", obj1);
+  console.log("obj2 is ", obj2);
+
+    </script>
+    
+</body>
+</html>

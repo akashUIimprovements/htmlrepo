@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .slide-container{
+            position: relative;
+            width: 100%;
+        }
+
+        .slide img{
+            width: 100%;
+
+        }
+        .arrow{
+            position: absolute;
+            cursor: pointer;
+            top:45%;
+            color: black;
+            background-color: white;
+            padding: 8px 18px;
+            border-radius: 50%;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .prev{
+            left:10px;
+        }
+        .next{
+            right: 10px;
+        }
+        .caption{
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: black;
+            padding: 15px 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="slide">
+            <img src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg" alt="" />
+            <div class="caption">Caption Text 1</div>
+        </div>
+  
+  
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoHX4_cEgpm26cHWKMn6t__E_ruzVLr0x-vyl2OV3dmZLQjTjD3szpHqbPIgw01tlOQUc&usqp=CAU" alt="" />
+            <div class="caption">Caption Text 2</div>
+        </div>
+  
+   
+        <div class="slide">
+            <img src="https://wowslider.com/sliders/demo-77/data1/images/idaho239691_1920.jpg" alt="" />
+            <div class="caption">Caption Text 3</div>
+        </div>
+   
+  
+        <div class="slide">
+            <img src="https://wowslider.com/sliders/demo-77/data1/images/tuscany428041.jpg" alt="" />
+            <div class="caption">Capion Text 4</div>
+        </div>
+
+        <span class="arrow prev" onclick="controller(-1)">
+            &#10094;
+        </span>
+        <span class="arrow next" onclick="controller(1)">
+            &#10095;
+        </span>
+    </div>
+    <script>
+        let flag=0;
+
+        function controller(x){
+            flag= flag+x;
+            slideshow(flag);
+          
+        }
+        slideshow(flag);
+        function slideshow(num){
+
+           let slides= document.getElementsByClassName("slide");
+
+           if (num == slides.length){
+            flag=0;
+            num=0;
+           }
+
+           if(num<0){
+            flag=slides.length-1
+            num=slides.length-1
+           }
+           for(let x of slides){
+           x.style.display="none";
+           }
+            slides[num].style.display="block";
+        }
+
+    </script>
+</body>
+</html>

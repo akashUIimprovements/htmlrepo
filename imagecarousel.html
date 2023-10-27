@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .slide-container{
+            position: relative;
+            width: 100%;
+        }
+        .slide img{
+            width: 100%;
+
+        }
+        .arrow{
+            cursor: pointer;
+            position: absolute;
+            border-radius: 50%;
+            color: black;
+            background-color: white;
+            padding: 8px 18px;
+            font-size: 25px;
+            font-weight: bold;
+            top: 40%;
+
+        }
+        .next{
+            right: 10px;
+        }
+        .prev{
+            left: 10px;
+        }
+
+        .caption{
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: rgb(0,0,0,0.5);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+            width: 100%;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+      <div class="slide">
+        <img src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg" alt=""/>
+         <div class="caption">Caption 1</div>
+      </div>
+      <div class="slide">
+        <img src="https://wowslider.com/sliders/demo-23/data1/images/landscape1344620.jpg" alt=""/>
+         <div class="caption">Caption 2</div>
+      </div>
+      <div class="slide">
+        <img src="https://wowslider.com/sliders/demo-77/data1/images/idaho239691_1920.jpg" alt=""/>
+         <div class="caption">Caption 3</div>
+      </div>
+      <div class="slide">
+        <img src="https://wowslider.com/sliders/demo-5/data/images/sur.jpg" alt=""/>
+         <div class="caption">Caption 4</div>
+      </div>
+    <span class="arrow prev" onclick="funcimg(-1)">&#8592;</span>
+    <span class="arrow next" onclick="funcimg(1)">&#8594;</span>
+
+    </div>
+
+    <script>
+        let flag=2;
+
+        function funcimg(x){
+            flag= flag+x;
+            slideshow(flag);
+
+
+        }
+        slideshow(flag);
+        function slideshow(num){
+            let slides= document.getElementsByClassName("slide");
+            console.log(slides);
+
+            if(num==slides.length){
+                flag=0;
+                num=0;
+            }
+
+            if(num<0){
+                flag= slides.length -1;
+                num= slides.length -1;
+            }
+
+            for(let i of slides){
+                i.style.display="none";
+            }
+
+            slides[num].style.display="block";
+
+
+        }
+    </script>
+</body>
+</html>

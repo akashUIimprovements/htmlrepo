@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let sum=function(a,b,c){
+            return {
+
+                sumTwo: function(){
+                    console.log("sum of 2 numbers "+(a+b));
+                } ,
+
+                sumThree: function(){
+                    console.log("sum of 3 numbers "+(a+b+c));
+                },
+
+                // temprary 
+
+                sumFour: function(){
+                    console.log("sum of 3 numbers ");
+                    let sum = a+b+c;  
+                }
+
+            }
+           
+        }
+
+        let result= sum(10,3,6);
+        console.log(result.sumTwo());
+        console.log(result.sumThree());
+     
+
+//  A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+//a closure gives you access to an outer function's scope from an inner function
+    </script>
+</body>
+</html>

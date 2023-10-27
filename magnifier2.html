@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        font: 700 1rem sans-serif;
+    }
+    .flex-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+.card{
+    width: 95%;
+    height: 60%;
+
+}
+
+section .product-img{
+    width: 40%;
+
+}
+
+section .product-img img{
+    width: 100%;
+    height: auto;
+}
+
+section .product-details{
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+   
+.product-title{
+    font: 600 1rem sans-serif;
+}
+.star{
+    font-size: 1.5rem;
+    color: orangered;
+    cursor: pointer;
+
+}
+mark{
+    padding: 4px 8px;
+    border-radius: 40%;
+    background-color: green;
+    color: white;
+}
+.magnified-img{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: #ff980030; 
+}
+.magnifier-lens{
+    position: relative;
+    /* top: 0;
+    left: 0; */
+    width: 150px;
+    height: 100px;
+    background-color: #ff980030;
+    border: .1px solid orangered;
+}
+
+
+
+</style>
+<body class="flex-center">
+    <div class="card flex-center">
+       <section class="product-img">
+        <img src="imgs/dressgreen.jpg" alt="">
+        <div class="magnifier-lens"></div>
+       </section>
+
+       <section class="product-details">
+        <h1 class="product-title">
+            Women Ethnic Wear 
+        </h1>
+        <div class="product-review">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+            <span class="star-rate"><mark>4.0</mark>Stars</span> 
+            <span class="review-no"><mark>1000</mark>Reviews</span>
+            <span class="quantity-sold"><mark>500</mark>Buyers</span>
+        </div>
+        <div class="product-price">
+            <p>Special price</p>
+            <p class="current-price">$99.99</p>
+            <p class="original-price"><strike>$150</strike>33% off </p>
+        </div>
+        <div class="magnified-img"></div>
+       </section>
+    </div>
+
+    <script>
+        const lens=document.querySelector('.magnifier-lens') ;
+        const product_img =document.querySelector('.product-img img');
+        const magnified_img =document.querySelector('.magnified-img');
+
+        function magnify(product_img,magnified_img){
+            lens.addEventListener('mousemove',moveLens)
+            product_img.addEventListener('mousemove',moveLens)
+        }
+
+        function moveLens(e){
+            let x,y,cx,cy;
+            const product_img_rect=product_img.getBoundingClientRect();
+
+            x=e.pageX - product_img_rect.left -lens.offsetWidth/2;
+            y=e.pageY -product_img_rect.top -lens.offsetHeight/2;
+            lens.style.cssText =`top: ${y}px; left: ${y}px`;
+        }
+        magnify(product_img,magnified_img);
+    </script>
+</body>
+</html>

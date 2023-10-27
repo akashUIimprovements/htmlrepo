@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: gray;
+        }
+
+
+        .container {
+
+            width: 950px;
+            margin: 50px auto 0;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .description {
+            margin-right: 50px;
+            margin-left: 20px;
+        }
+
+        .description h1 {
+            margin: 50px 0 10px 0;
+            font-weight: 300;
+        }
+
+        .description p {
+            font-size: 15px;
+
+        }
+
+        .description span {
+            margin-top: 15px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 30px;
+            color: bisque;
+
+        }
+
+        .description button {
+            font-size: 8px;
+            padding: 15px 50px;
+            margin-top: 40px;
+            cursor: pointer;
+            border: 0;
+            outline: none;
+            color: blueviolet;
+            box-shadow: 0 4px 6px 0 red;
+
+        }
+
+        .description .buynow {
+            background-color: orange;
+
+        }
+
+        .description .addtocart {
+            background-color: orangered;
+
+        }
+
+        .xzoom-thumbs img {
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            border: 1px solid bisque;
+        }
+
+        .xzoom-thumbs a {
+            text-decoration: none;
+        }
+
+        .xzoom-preview {
+            border: 1px solid bisque;
+            box-shadow: 0 4px 20px 2px burlywood;
+        }
+
+        .active {
+
+            box-shadow: 0 0 3px 0 green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="xzoom-container">
+
+            <img src="imgs/dressyellow.jpg" class="xzoom" />
+            <div class="xzoom-thumbs">
+                <a href="imgs/yellowdress4.jpg">
+                    <img class="xzoom-gallery" src="imgs/yellowdress4.jpg" xpreview="imgs/dressyellow.jpg">
+                </a>
+                <a href="imgs/yellowdress1.jpg">
+                    <img class="xzoom-gallery" src="imgs/yellowdress1.jpg">
+                </a>
+                <a href="imgs/yellowdress2.jpg">
+                    <img class="xzoom-gallery" src="imgs/yellowdress2.jpg">
+                </a>
+                <a href="imgs/yellowdress3.jpg">
+                    <img class="xzoom-gallery" src="imgs/yellowdress3.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="description">
+            <h1>Women's Ethnic Wear</h1>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita maiores inventore alias eveniet nulla
+                pariatur quasi animi commodi necessitatibus fugiat. Asperiores quisquam illo ex? Quos dolore placeat
+                blanditiis ipsam quis?
+            </p>
+            <span> 120 $</span>
+            <div>
+                <button class="buynow">BUY NOW</button>
+                <button class="addtocart">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="zoom.js"></script>
+
+    <script>
+        $(function () {
+            $(".xzoom, .xzoom-gallery").xzoom({
+
+                zoomWidth: 400,
+                tint: "#333",
+                Xoffset: 15,
+            });
+
+        }
+        );
+    </script>
+</body>
+</html>

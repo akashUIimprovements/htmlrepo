@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call, apply and bind function
+
+
+        let user1={
+            "name":"sushank",
+            "age":20,
+            "marks":80,
+
+       
+        }
+
+        printdata= function(city,country){
+                console.log(this);
+                console.log(this.name+" "+this.age+" "+this.marks+" "+city+ " "+country);
+            }
+
+       printdata.call(user1,"delhi","India");
+
+
+       let user2={
+            "name":"shameem",
+            "age":18,
+            "marks":85,
+
+          
+        }
+        // function borrowing
+
+       // user1.printdata.call(user2);
+
+       printdata.call(user2,"mumbai","India");
+
+       printdata.apply(user2,["mumbai","India"]);
+
+
+       let newfunc= printdata.bind(user2,"melbourne","australiA");
+
+       newfunc();
+
+       
+    </script>
+</body>
+</html>
